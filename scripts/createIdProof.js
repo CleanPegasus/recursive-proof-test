@@ -36,6 +36,29 @@ async function main() {
     "circuit-output/identity_0001.zkey"
   );
 
+
+  const proofString = JSON.stringify(proof, null, 2);
+
+  fs.writeFile('circuit-output/proof.json', proofString, (err) => {
+    if (err) {
+      console.error('Error writing file', err);
+    } else {
+      console.log('Successfully wrote file');
+    }
+  });
+
+  const publicSignalsString = JSON.stringify(publicSignals, null, 2);
+
+  console.log(publicSignalsString);
+
+  fs.writeFile('circuit-output/pubSignals.json', publicSignalsString, (err) => {
+    if (err) {
+      console.error('Error writing file', err);
+    } else {
+      console.log('Successfully wrote file');
+    }
+  });
+
 }
 
 main()
